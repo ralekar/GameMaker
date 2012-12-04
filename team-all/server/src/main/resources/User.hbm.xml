@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="db.User" table="User" catalog="a9team3">
+        <id name="username" type="string">
+            <column name="username" />
+            <generator class="assigned" />
+        </id>
+        <property name="password" type="string">
+            <column name="password" length="45" not-null="true" />
+        </property>
+        <property name="usertype" type="string">
+            <column name="usertype" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

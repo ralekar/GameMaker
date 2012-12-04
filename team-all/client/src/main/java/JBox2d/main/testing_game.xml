@@ -1,0 +1,671 @@
+<?xml version="1.0" ?>
+<game>
+    <spriteList>
+        <gameObject>
+            <posX>-1.0</posX>
+            <posY>-1.0</posY>
+            <speedX>0.0</speedX>
+            <speedY>0.0</speedY>
+            <width>570.0</width>
+            <height>700.0</height>
+            <previousX>0.0</previousX>
+            <previousY>-1.0</previousY>
+            <visible>true</visible>
+            <id>background</id>
+            <groupId>background</groupId>
+            <imageUrlString>29</imageUrlString>
+            <heading>0.0</heading>
+            <eventListenerList></eventListenerList>
+            <stringToEventMap></stringToEventMap>
+            <layer>Layer 1</layer>
+            <scoreModificationValue>0</scoreModificationValue>
+            <imageId>29</imageId>
+        </gameObject>
+        <gameObject>
+            <posX>272.0</posX>
+            <posY>277.0</posY>
+            <speedX>0.0</speedX>
+            <speedY>-0.5</speedY>
+            <width>50.0</width>
+            <height>50.0</height>
+            <previousX>273.0</previousX>
+            <previousY>277.0</previousY>
+            <visible>true</visible>
+            <id>spaceship</id>
+            <groupId>spaceship</groupId>
+            <imageUrlString>30</imageUrlString>
+            <heading>0.0</heading>
+            <eventListenerList>
+                <eventlistener.KeyPressedEventListener>
+                    <keyRegistered>39</keyRegistered>
+                    <xSpeed>0.5</xSpeed>
+                    <ySpeed>0.0</ySpeed>
+                    <registeredObjectId>spaceship</registeredObjectId>
+                    <registeredGroupId>spaceship</registeredGroupId>
+                    <action class="action.ActionMove"></action>
+                </eventlistener.KeyPressedEventListener>
+                <eventlistener.KeyPressedEventListener>
+                    <keyRegistered>37</keyRegistered>
+                    <xSpeed>-0.5</xSpeed>
+                    <ySpeed>0.0</ySpeed>
+                    <registeredObjectId>spaceship</registeredObjectId>
+                    <registeredGroupId>spaceship</registeredGroupId>
+                    <action class="action.ActionMove"></action>
+                </eventlistener.KeyPressedEventListener>
+                <eventlistener.KeyPressedEventListener>
+                    <keyRegistered>40</keyRegistered>
+                    <xSpeed>0.0</xSpeed>
+                    <ySpeed>0.5</ySpeed>
+                    <registeredObjectId>spaceship</registeredObjectId>
+                    <registeredGroupId>spaceship</registeredGroupId>
+                    <action class="action.ActionMove"></action>
+                </eventlistener.KeyPressedEventListener>
+                <eventlistener.KeyPressedEventListener>
+                    <keyRegistered>38</keyRegistered>
+                    <xSpeed>0.0</xSpeed>
+                    <ySpeed>-0.5</ySpeed>
+                    <registeredObjectId>spaceship</registeredObjectId>
+                    <registeredGroupId>spaceship</registeredGroupId>
+                    <action class="action.ActionMove"></action>
+                </eventlistener.KeyPressedEventListener>
+                <eventlistener.KeyPressedEventListener>
+                    <keyRegistered>83</keyRegistered>
+                    <xSpeed>0.0</xSpeed>
+                    <ySpeed>-0.5</ySpeed>
+                    <registeredObjectId>spaceship</registeredObjectId>
+                    <registeredGroupId>spaceship</registeredGroupId>
+                    <action class="action.ActionRotate">
+                        <direction>Clockwise</direction>
+                    </action>
+                </eventlistener.KeyPressedEventListener>
+                <eventlistener.KeyPressedEventListener>
+                    <keyRegistered>65</keyRegistered>
+                    <xSpeed>0.0</xSpeed>
+                    <ySpeed>-0.5</ySpeed>
+                    <registeredObjectId>spaceship</registeredObjectId>
+                    <registeredGroupId>spaceship</registeredGroupId>
+                    <action class="action.ActionRotate">
+                        <direction>Anticlockwise</direction>
+                    </action>
+                </eventlistener.KeyPressedEventListener>
+                <eventlistener.KeyPressedEventListener>
+                    <keyRegistered>32</keyRegistered>
+                    <xSpeed>0.0</xSpeed>
+                    <ySpeed>-0.5</ySpeed>
+                    <registeredObjectId>spaceship</registeredObjectId>
+                    <registeredGroupId>spaceship</registeredGroupId>
+                    <action class="action.ActionCreateSpriteModel"></action>
+                </eventlistener.KeyPressedEventListener>
+            </eventListenerList>
+            <stringToEventMap>
+                <entry>
+                    <string>Input+Create Bomb</string>
+                    <int>1585050664</int>
+                </entry>
+                <entry>
+                    <string>Input+Rotate Anticlockwise</string>
+                    <int>1968093325</int>
+                </entry>
+                <entry>
+                    <string>Input+Move</string>
+                    <int>733101148</int>
+                </entry>
+                <entry>
+                    <string>Input+Rotate Clockwise</string>
+                    <int>2042459426</int>
+                </entry>
+            </stringToEventMap>
+            <layer>Layer 2</layer>
+            <scoreModificationValue>1</scoreModificationValue>
+            <imageId>30</imageId>
+        </gameObject>
+        <gameObject>
+            <posX>227.0</posX>
+            <posY>47.0</posY>
+            <speedX>0.3</speedX>
+            <speedY>0.3</speedY>
+            <width>50.0</width>
+            <height>50.0</height>
+            <previousX>226.0</previousX>
+            <previousY>47.0</previousY>
+            <visible>true</visible>
+            <id>asteroid 1</id>
+            <groupId>asteroid 1</groupId>
+            <imageUrlString>11</imageUrlString>
+            <heading>0.0</heading>
+            <eventListenerList>
+                <eventlistener.NewFrameEventListener>
+                    <registeredObjectId>asteroid 1</registeredObjectId>
+                    <registeredGroupId>asteroid</registeredGroupId>
+                    <action class="action.ActionMove"></action>
+                </eventlistener.NewFrameEventListener>
+                <eventlistener.OutOfBoundaryEventListener>
+                    <registeredObjectId>asteroid 1</registeredObjectId>
+                    <registeredGroupId>asteroid 1</registeredGroupId>
+                    <action class="action.ActionStartOver">
+                        <startX>227.0</startX>
+                        <startY>47.0</startY>
+                    </action>
+                </eventlistener.OutOfBoundaryEventListener>
+                <eventlistener.CollisionEventListener>
+                    <action class="action.RemoveAction"></action>
+                    <registeredGroupId1>asteroid 1</registeredGroupId1>
+                    <registeredGroupId2>Bomb</registeredGroupId2>
+                </eventlistener.CollisionEventListener>
+                <eventlistener.CollisionEventListener>
+                    <action class="action.ActionPlaySound">
+                        <soundFile>Brick.au</soundFile>
+                    </action>
+                    <registeredGroupId1>asteroid 1</registeredGroupId1>
+                    <registeredGroupId2>Bomb</registeredGroupId2>
+                </eventlistener.CollisionEventListener>
+                <eventlistener.CollisionEventListener>
+                    <action class="action.ActionChangeGameStatus">
+                        <YES>true</YES>
+                        <NO>false</NO>
+                        <isGameStopCommandIssued>false</isGameStopCommandIssued>
+                        <message>You Lose</message>
+                    </action>
+                    <registeredGroupId1>asteroid 1</registeredGroupId1>
+                    <registeredGroupId2>spaceship</registeredGroupId2>
+                </eventlistener.CollisionEventListener>
+                <eventlistener.CollisionEventListener>
+                    <action class="action.ActionIncreaseScore">
+                        <scoreModificationValue>10</scoreModificationValue>
+                    </action>
+                    <registeredGroupId1>asteroid 1</registeredGroupId1>
+                    <registeredGroupId2>Bomb</registeredGroupId2>
+                </eventlistener.CollisionEventListener>
+            </eventListenerList>
+            <stringToEventMap>
+                <entry>
+                    <string>Collision+Play Sound</string>
+                    <int>1578179420</int>
+                </entry>
+                <entry>
+                    <string>New Frame+Move</string>
+                    <int>548886989</int>
+                </entry>
+                <entry>
+                    <string>Collision+Remove</string>
+                    <int>1857834515</int>
+                </entry>
+                <entry>
+                    <string>Out of Boundary+Start Over</string>
+                    <int>1786890064</int>
+                </entry>
+                <entry>
+                    <string>Collision+Game Lose</string>
+                    <int>476186158</int>
+                </entry>
+                <entry>
+                    <string>Collision+Increase Score</string>
+                    <int>904554467</int>
+                </entry>
+            </stringToEventMap>
+            <layer>Layer 2</layer>
+            <soundFile>Brick.au</soundFile>
+            <scoreModificationValue>10</scoreModificationValue>
+            <imageId>11</imageId>
+        </gameObject>
+        <gameObject>
+            <posX>493.0</posX>
+            <posY>55.0</posY>
+            <speedX>-0.3</speedX>
+            <speedY>0.5</speedY>
+            <width>50.0</width>
+            <height>50.0</height>
+            <previousX>493.0</previousX>
+            <previousY>56.0</previousY>
+            <visible>true</visible>
+            <id>asteroid 2</id>
+            <groupId>asteroid 2</groupId>
+            <imageUrlString>11</imageUrlString>
+            <heading>0.0</heading>
+            <eventListenerList>
+                <eventlistener.NewFrameEventListener>
+                    <registeredObjectId>asteroid 2</registeredObjectId>
+                    <registeredGroupId>asteroid</registeredGroupId>
+                    <action class="action.ActionMove"></action>
+                </eventlistener.NewFrameEventListener>
+                <eventlistener.OutOfBoundaryEventListener>
+                    <registeredObjectId>asteroid 2</registeredObjectId>
+                    <registeredGroupId>asteroid 2</registeredGroupId>
+                    <action class="action.ActionStartOver">
+                        <startX>493.0</startX>
+                        <startY>55.0</startY>
+                    </action>
+                </eventlistener.OutOfBoundaryEventListener>
+                <eventlistener.CollisionEventListener>
+                    <action class="action.ActionChangeGameStatus">
+                        <YES>true</YES>
+                        <NO>false</NO>
+                        <isGameStopCommandIssued>false</isGameStopCommandIssued>
+                        <message>You Lose</message>
+                    </action>
+                    <registeredGroupId1>asteroid 2</registeredGroupId1>
+                    <registeredGroupId2>spaceship</registeredGroupId2>
+                </eventlistener.CollisionEventListener>
+                <eventlistener.CollisionEventListener>
+                    <action class="action.RemoveAction"></action>
+                    <registeredGroupId1>asteroid 2</registeredGroupId1>
+                    <registeredGroupId2>Bomb</registeredGroupId2>
+                </eventlistener.CollisionEventListener>
+                <eventlistener.CollisionEventListener>
+                    <action class="action.ActionPlaySound">
+                        <soundFile>Brick.au</soundFile>
+                    </action>
+                    <registeredGroupId1>asteroid 2</registeredGroupId1>
+                    <registeredGroupId2>Bomb</registeredGroupId2>
+                </eventlistener.CollisionEventListener>
+                <eventlistener.CollisionEventListener>
+                    <action class="action.ActionIncreaseScore">
+                        <scoreModificationValue>10</scoreModificationValue>
+                    </action>
+                    <registeredGroupId1>asteroid 2</registeredGroupId1>
+                    <registeredGroupId2>Bomb</registeredGroupId2>
+                </eventlistener.CollisionEventListener>
+            </eventListenerList>
+            <stringToEventMap>
+                <entry>
+                    <string>Collision+Play Sound</string>
+                    <int>655028946</int>
+                </entry>
+                <entry>
+                    <string>New Frame+Move</string>
+                    <int>1017096401</int>
+                </entry>
+                <entry>
+                    <string>Collision+Remove</string>
+                    <int>401193896</int>
+                </entry>
+                <entry>
+                    <string>Out of Boundary+Start Over</string>
+                    <int>1359486212</int>
+                </entry>
+                <entry>
+                    <string>Collision+Game Lose</string>
+                    <int>2078146311</int>
+                </entry>
+                <entry>
+                    <string>Collision+Increase Score</string>
+                    <int>1589335521</int>
+                </entry>
+            </stringToEventMap>
+            <layer>Layer 2</layer>
+            <soundFile>Brick.au</soundFile>
+            <scoreModificationValue>10</scoreModificationValue>
+            <imageId>11</imageId>
+        </gameObject>
+        <gameObject>
+            <posX>472.0</posX>
+            <posY>436.0</posY>
+            <speedX>-0.3</speedX>
+            <speedY>0.0</speedY>
+            <width>50.0</width>
+            <height>50.0</height>
+            <previousX>472.0</previousX>
+            <previousY>437.0</previousY>
+            <visible>true</visible>
+            <id>asteroid 3</id>
+            <groupId>asteroid 3</groupId>
+            <imageUrlString>12</imageUrlString>
+            <heading>0.0</heading>
+            <eventListenerList>
+                <eventlistener.NewFrameEventListener>
+                    <registeredObjectId>asteroid 3</registeredObjectId>
+                    <registeredGroupId>asteroid</registeredGroupId>
+                    <action class="action.ActionMove"></action>
+                </eventlistener.NewFrameEventListener>
+                <eventlistener.OutOfBoundaryEventListener>
+                    <registeredObjectId>asteroid 3</registeredObjectId>
+                    <registeredGroupId>asteroid 3</registeredGroupId>
+                    <action class="action.ActionStartOver">
+                        <startX>472.0</startX>
+                        <startY>436.0</startY>
+                    </action>
+                </eventlistener.OutOfBoundaryEventListener>
+                <eventlistener.CollisionEventListener>
+                    <action class="action.ActionPlaySound">
+                        <soundFile>Brick.au</soundFile>
+                    </action>
+                    <registeredGroupId1>asteroid 3</registeredGroupId1>
+                    <registeredGroupId2>Bomb</registeredGroupId2>
+                </eventlistener.CollisionEventListener>
+                <eventlistener.CollisionEventListener>
+                    <action class="action.RemoveAction"></action>
+                    <registeredGroupId1>asteroid 3</registeredGroupId1>
+                    <registeredGroupId2>Bomb</registeredGroupId2>
+                </eventlistener.CollisionEventListener>
+                <eventlistener.CollisionEventListener>
+                    <action class="action.ActionChangeGameStatus">
+                        <YES>true</YES>
+                        <NO>false</NO>
+                        <isGameStopCommandIssued>false</isGameStopCommandIssued>
+                        <message>You Lose</message>
+                    </action>
+                    <registeredGroupId1>asteroid 3</registeredGroupId1>
+                    <registeredGroupId2>spaceship</registeredGroupId2>
+                </eventlistener.CollisionEventListener>
+                <eventlistener.CollisionEventListener>
+                    <action class="action.ActionIncreaseScore">
+                        <scoreModificationValue>10</scoreModificationValue>
+                    </action>
+                    <registeredGroupId1>asteroid 3</registeredGroupId1>
+                    <registeredGroupId2>Bomb</registeredGroupId2>
+                </eventlistener.CollisionEventListener>
+            </eventListenerList>
+            <stringToEventMap>
+                <entry>
+                    <string>Collision+Play Sound</string>
+                    <int>1217450604</int>
+                </entry>
+                <entry>
+                    <string>New Frame+Move</string>
+                    <int>369381487</int>
+                </entry>
+                <entry>
+                    <string>Collision+Remove</string>
+                    <int>468112812</int>
+                </entry>
+                <entry>
+                    <string>Out of Boundary+Start Over</string>
+                    <int>1221995064</int>
+                </entry>
+                <entry>
+                    <string>Collision+Game Lose</string>
+                    <int>1339432323</int>
+                </entry>
+                <entry>
+                    <string>Collision+Increase Score</string>
+                    <int>1029230533</int>
+                </entry>
+            </stringToEventMap>
+            <layer>Layer 2</layer>
+            <soundFile>Brick.au</soundFile>
+            <scoreModificationValue>10</scoreModificationValue>
+            <imageId>12</imageId>
+        </gameObject>
+        <gameObject>
+            <posX>265.0</posX>
+            <posY>-1534.0</posY>
+            <speedX>0.0</speedX>
+            <speedY>-0.1</speedY>
+            <width>7.0</width>
+            <height>12.0</height>
+            <previousX>265.0</previousX>
+            <previousY>-1524.0</previousY>
+            <visible>true</visible>
+            <id>Untitled 5</id>
+            <groupId>Bomb</groupId>
+            <imageUrlString>30</imageUrlString>
+            <heading>0.0</heading>
+            <eventListenerList></eventListenerList>
+            <stringToEventMap></stringToEventMap>
+            <layer>Layer 2</layer>
+            <scoreModificationValue>0</scoreModificationValue>
+            <imageId>30</imageId>
+        </gameObject>
+        <gameObject>
+            <posX>305.0</posX>
+            <posY>-1234.0</posY>
+            <speedX>0.0</speedX>
+            <speedY>-0.1</speedY>
+            <width>7.0</width>
+            <height>12.0</height>
+            <previousX>305.0</previousX>
+            <previousY>-1224.0</previousY>
+            <visible>true</visible>
+            <id>Untitled 6</id>
+            <groupId>Bomb</groupId>
+            <imageUrlString>30</imageUrlString>
+            <heading>0.0</heading>
+            <eventListenerList></eventListenerList>
+            <stringToEventMap></stringToEventMap>
+            <layer>Layer 2</layer>
+            <scoreModificationValue>0</scoreModificationValue>
+            <imageId>30</imageId>
+        </gameObject>
+        <gameObject>
+            <posX>320.0</posX>
+            <posY>-394.0</posY>
+            <speedX>0.0</speedX>
+            <speedY>-0.1</speedY>
+            <width>7.0</width>
+            <height>12.0</height>
+            <previousX>320.0</previousX>
+            <previousY>-384.0</previousY>
+            <visible>true</visible>
+            <id>Untitled 7</id>
+            <groupId>Bomb</groupId>
+            <imageUrlString>30</imageUrlString>
+            <heading>0.0</heading>
+            <eventListenerList></eventListenerList>
+            <stringToEventMap></stringToEventMap>
+            <layer>Layer 2</layer>
+            <scoreModificationValue>0</scoreModificationValue>
+            <imageId>30</imageId>
+        </gameObject>
+        <gameObject>
+            <posX>320.0</posX>
+            <posY>-74.0</posY>
+            <speedX>0.0</speedX>
+            <speedY>-0.1</speedY>
+            <width>7.0</width>
+            <height>12.0</height>
+            <previousX>320.0</previousX>
+            <previousY>-64.0</previousY>
+            <visible>true</visible>
+            <id>Untitled 8</id>
+            <groupId>Bomb</groupId>
+            <imageUrlString>30</imageUrlString>
+            <heading>0.0</heading>
+            <eventListenerList></eventListenerList>
+            <stringToEventMap></stringToEventMap>
+            <layer>Layer 2</layer>
+            <scoreModificationValue>0</scoreModificationValue>
+            <imageId>30</imageId>
+        </gameObject>
+    </spriteList>
+    <eventsForGameController>
+        <eventlistener.NewFrameEventListener>
+            <registeredObjectId>Untitled 5</registeredObjectId>
+            <registeredGroupId>Bomb</registeredGroupId>
+            <action class="action.ActionMove"></action>
+        </eventlistener.NewFrameEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>background</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>asteroid</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>asteroid</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>asteroid</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>background</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>asteroid</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>asteroid</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>asteroid</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>background</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>asteroid</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>asteroid</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>asteroid</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>background</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>asteroid</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>asteroid</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>asteroid</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>background</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>asteroid</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>asteroid</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>asteroid</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>background</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>asteroid</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>asteroid</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>asteroid</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>background</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>asteroid</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>asteroid</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>Bomb</registeredGroupId1>
+            <registeredGroupId2>asteroid</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>background</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>asteroid</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>asteroid</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener>
+            <action class="action.RemoveAction"></action>
+            <registeredGroupId1>asteroid</registeredGroupId1>
+            <registeredGroupId2>Bomb</registeredGroupId2>
+        </eventlistener.CollisionEventListener>
+        <eventlistener.NewFrameEventListener reference="../../spriteList/gameObject[3]/eventListenerList/eventlistener.NewFrameEventListener"></eventlistener.NewFrameEventListener>
+        <eventlistener.NewFrameEventListener reference="../../spriteList/gameObject[4]/eventListenerList/eventlistener.NewFrameEventListener"></eventlistener.NewFrameEventListener>
+        <eventlistener.NewFrameEventListener reference="../../spriteList/gameObject[5]/eventListenerList/eventlistener.NewFrameEventListener"></eventlistener.NewFrameEventListener>
+        <eventlistener.OutOfBoundaryEventListener reference="../../spriteList/gameObject[3]/eventListenerList/eventlistener.OutOfBoundaryEventListener"></eventlistener.OutOfBoundaryEventListener>
+        <eventlistener.OutOfBoundaryEventListener reference="../../spriteList/gameObject[5]/eventListenerList/eventlistener.OutOfBoundaryEventListener"></eventlistener.OutOfBoundaryEventListener>
+        <eventlistener.OutOfBoundaryEventListener reference="../../spriteList/gameObject[4]/eventListenerList/eventlistener.OutOfBoundaryEventListener"></eventlistener.OutOfBoundaryEventListener>
+        <eventlistener.CollisionEventListener reference="../../spriteList/gameObject[3]/eventListenerList/eventlistener.CollisionEventListener"></eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener reference="../../spriteList/gameObject[3]/eventListenerList/eventlistener.CollisionEventListener[2]"></eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener reference="../../spriteList/gameObject[3]/eventListenerList/eventlistener.CollisionEventListener[3]"></eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener reference="../../spriteList/gameObject[4]/eventListenerList/eventlistener.CollisionEventListener"></eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener reference="../../spriteList/gameObject[4]/eventListenerList/eventlistener.CollisionEventListener[2]"></eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener reference="../../spriteList/gameObject[4]/eventListenerList/eventlistener.CollisionEventListener[3]"></eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener reference="../../spriteList/gameObject[5]/eventListenerList/eventlistener.CollisionEventListener"></eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener reference="../../spriteList/gameObject[5]/eventListenerList/eventlistener.CollisionEventListener[2]"></eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener reference="../../spriteList/gameObject[5]/eventListenerList/eventlistener.CollisionEventListener[3]"></eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener reference="../../spriteList/gameObject[5]/eventListenerList/eventlistener.CollisionEventListener[4]"></eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener reference="../../spriteList/gameObject[4]/eventListenerList/eventlistener.CollisionEventListener[4]"></eventlistener.CollisionEventListener>
+        <eventlistener.CollisionEventListener reference="../../spriteList/gameObject[3]/eventListenerList/eventlistener.CollisionEventListener[4]"></eventlistener.CollisionEventListener>
+    </eventsForGameController>
+    <eventsForKeyController>
+        <eventlistener.KeyPressedEventListener reference="../../spriteList/gameObject[2]/eventListenerList/eventlistener.KeyPressedEventListener"></eventlistener.KeyPressedEventListener>
+        <eventlistener.KeyPressedEventListener reference="../../spriteList/gameObject[2]/eventListenerList/eventlistener.KeyPressedEventListener[2]"></eventlistener.KeyPressedEventListener>
+        <eventlistener.KeyPressedEventListener reference="../../spriteList/gameObject[2]/eventListenerList/eventlistener.KeyPressedEventListener[3]"></eventlistener.KeyPressedEventListener>
+        <eventlistener.KeyPressedEventListener reference="../../spriteList/gameObject[2]/eventListenerList/eventlistener.KeyPressedEventListener[4]"></eventlistener.KeyPressedEventListener>
+        <eventlistener.KeyPressedEventListener reference="../../spriteList/gameObject[2]/eventListenerList/eventlistener.KeyPressedEventListener[5]"></eventlistener.KeyPressedEventListener>
+        <eventlistener.KeyPressedEventListener reference="../../spriteList/gameObject[2]/eventListenerList/eventlistener.KeyPressedEventListener[6]"></eventlistener.KeyPressedEventListener>
+        <eventlistener.KeyPressedEventListener reference="../../spriteList/gameObject[2]/eventListenerList/eventlistener.KeyPressedEventListener[7]"></eventlistener.KeyPressedEventListener>
+    </eventsForKeyController>
+    <layers>
+        <string>All Layers</string>
+        <string>Layer 1</string>
+        <string>Layer 2</string>
+        <string>Layer 3</string>
+    </layers>
+    <isClockDisplayable>true</isClockDisplayable>
+</game>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="http://fluency.knownspace.org/student-files/fall2012/a10/team-all/" href="project.jnlp">
+  <information>
+    <title>Game Maker - Fall 2012 Batch</title>
+    <vendor>P532</vendor>
+    <homepage href="http://fluency.knownspace.org/confluence" />
+    <description></description>   
+    <description kind="short">Fall 2012's Game Maker</description>
+    <icon href="kslogo.gif" />
+  </information>
+  <offline-allowed />
+  <security>
+      <all-permissions />
+  </security>
+  <resources>
+    <j2se version="1.6+" />
+    <jar href="team-all-jar-with-dependencies.jar" />
+	<nativelib href="natives-1.jar" />
+  </resources>
+  <application-desc main-class="gameMaker.gameMaker" />
+</jnlp>

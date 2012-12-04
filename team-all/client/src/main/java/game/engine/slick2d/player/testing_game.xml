@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<game>
+    <spriteList class="java.util.concurrent.ConcurrentLinkedQueue" serialization="custom">
+        <unserializable-parents></unserializable-parents>
+        <java.util.concurrent.ConcurrentLinkedQueue>
+            <default></default>
+            <gameObject>
+                <posX>100.0</posX>
+                <posY>100.0</posY>
+                <speedX>1.0</speedX>
+                <speedY>1.0</speedY>
+                <width>30.0</width>
+                <height>30.0</height>
+                <previousX>0.0</previousX>
+                <previousY>0.0</previousY>
+                <visible>true</visible>
+                <id>Untitled 0</id>
+                <groupId>Default Group 0</groupId>
+                <imageUrlString>10</imageUrlString>
+                <heading>0.0</heading>
+                <eventListenerList>
+                    <eventlistener.NewFrameEventListener>
+                        <registeredObjectId>Untitled 0</registeredObjectId>
+                        <registeredGroupId>Default Group 0</registeredGroupId>
+                        <action class="action.ActionMove"></action>
+                    </eventlistener.NewFrameEventListener>
+                    <eventlistener.OutOfBoundaryEventListener>
+                        <registeredObjectId>Untitled 0</registeredObjectId>
+                        <registeredGroupId>Default Group 0</registeredGroupId>
+                        <action class="action.ActionStartOver">
+                            <startX>0.0</startX>
+                            <startY>0.0</startY>
+                        </action>
+                    </eventlistener.OutOfBoundaryEventListener>
+                </eventListenerList>
+                <stringToEventMap>
+                    <entry>
+                        <string>Out of Boundary+Start Over</string>
+                        <int>237199005</int>
+                    </entry>
+                    <entry>
+                        <string>New Frame+Move</string>
+                        <int>911838464</int>
+                    </entry>
+                </stringToEventMap>
+                <layer>Layer 1</layer>
+                <scoreModificationValue>1</scoreModificationValue>
+                <imageId>10</imageId>
+            </gameObject>
+            <null></null>
+        </java.util.concurrent.ConcurrentLinkedQueue>
+    </spriteList>
+    <eventsForGameController>
+        <eventlistener.NewFrameEventListener reference="../../spriteList/java.util.concurrent.ConcurrentLinkedQueue/gameObject/eventListenerList/eventlistener.NewFrameEventListener"></eventlistener.NewFrameEventListener>
+        <eventlistener.OutOfBoundaryEventListener reference="../../spriteList/java.util.concurrent.ConcurrentLinkedQueue/gameObject/eventListenerList/eventlistener.OutOfBoundaryEventListener"></eventlistener.OutOfBoundaryEventListener>
+    </eventsForGameController>
+    <eventsForKeyController></eventsForKeyController>
+    <layers>
+        <string>All Layers</string>
+        <string>Layer 1</string>
+    </layers>
+    <isClockDisplayable>false</isClockDisplayable>
+</game>

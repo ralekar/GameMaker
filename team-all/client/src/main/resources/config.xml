@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<Database>
+		<url>jdbc:mysql://127.0.0.1:3306/game</url>
+        <driver>com.mysql.jdbc.Driver</driver>
+        <tablename>Game</tablename>
+        <username>root</username> 
+        <password>password</password> 
+	</Database>
+</config>

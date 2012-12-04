@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="default" name="${base.project.name}">
+
+	<!-- 
+  ########################################################################################
+  Global properties. These are used by all targets in this build file.
+  ########################################################################################-->
+
+	<!-- Base properties that will likely need to be changed when using this template for a different project -->
+	<property name="base.project.name" value="team-all" />
+	<property name="base.project.name.friendly" value="Team All's A10" />
+	<property name="assignment.name" value="a10" />
+	<property name="semester" value="fall2012" />
+	<property name="code-root" value="." />
+	<property name="wwwroot" value="/u/kspace/www/fluency" />
+	<property name="junit-jar" value="junit-4.10.jar" />
+	<property name="uispec4j-jar" value="uispec4j-2.4-jdk16.jar" />
+	<property name="log4j-jar" value="log4j-1.2.17.jar" />
+	<property name="xstream-jar" value="xstream-1.4.3.jar" />
+	<property name="resource-jar" value="resource.jar" />
+	<property name="gson-jar" value="gson-2.2.2.jar" />
+	<property name="comcodec-jar" value="commons-codec-1.6.jar" />
+	<property name="comlog-jar" value="commons-logging-1.1.1.jar" />
+	<property name="fluent-jar" value="fluent-hc-4.2.1.jar" />
+	<property name="httpclient-jar" value="httpclient-4.2.1.jar" />
+	<property name="httpcache-jar" value="httpclient-cache-4.2.1.jar" />
+	<property name="httpcore-jar" value="httpcore-4.2.1.jar" />
+	<property name="httpmime-jar" value="httpmime-4.2.1.jar" />
+	<property name="lang3-jar" value="commons-lang3-3.1.jar" />
+	<property name="jtatto-jar" value="JTattoo.jar" />
+	<property name="syn-jar" value="synthetica.jar" />
+	<property name="syn1-jar" value="syntheticaSilverMoon.jar" />
+	<property name="syn2-jar" value="syntheticaClassy.jar" />
+	<property name="syn3-jar" value="syntheticaMauveMetallic.jar" />
+	<property name="napkin-jar" value="napkinlaf-alpha001.jar" />
+	<property name="comcon1.6-jar" value="commons-configuration-1.6.jar" />
+	<property name="comcoll3.1-jar" value="commons-collections-3.1.jar" />
+	<property name="comlan2.5-jar" value="commons-lang-2.5.jar" />
+	<property name="timing-jar" value="TimingFramework-0.55.jar" />
+	<property name="animation-jar" value="AnimatedTransitions.jar" />
+	<property name="jwizard-jar" value="JWizardComponent.jar" />
+	<property name="hibernate-commons-annotations-4.0.1.Final" value="hibernate-commons-annotations-4.0.1.Final.jar" />
+	<property name="hibernate-core-4.1.7.Final" value="hibernate-core-4.1.7.Final.jar" />
+	<property name="hibernate-jpa-2.0-api-1.0.1.Final" value="hibernate-jpa-2.0-api-1.0.1.Final.jar" />
+	<property name="dom4j-1.6.1" value="dom4j-1.6.1.jar" />
+	<property name="antlr-2.7.7" value="antlr-2.7.7.jar" />
+	<property name="jboss-logging-3.1.0.GA" value="jboss-logging-3.1.0.GA.jar" />
+	<property name="jboss-transaction-api_1.1_spec-1.0.0.Final" value="jboss-transaction-api_1.1_spec-1.0.0.Final.jar" />
+	<property name="jta-1.1" value="jta-1.1.jar" />
+	<property name="mig" value="miglayout15-swing.jar" />
+	<property name="slick-util" value="slick-util.jar" />
+	<property name="slick" value="slick.jar" />
+	<property name="jinput" value="jinput.jar" />
+	<property name="lwjgl_util" value="lwjgl_util.jar" />
+	<property name="lwjgl" value="lwjgl.jar" />
+	
+
+
+
+	<!-- Properties derived from the base properties above. Unlikely to change. -->
+	<property name="webstart.location" value="${wwwroot}/student-files/${semester}/${assignment.name}/${base.project.name}/" />
+	<property name="dist.coverage.dir" value="${wwwroot}/coverage/${semester}/${assignment.name}/${base.project.name}/server/" />
+	
+	<property name="key.alias" value="fluencykey" />
+	<property name="key.pass" value="fluency" />
+	
+	<property name="project.build.home" value="${code-root}/bin" />
+	<property name="dist" value="${code-root}/dist" />
+	<property name="test" value="${code-root}/test" />
+	<property name="testclasses" value="${code-root}/testbin" />
+	<property name="classes" value="${code-root}/bin" />
+	<property name="src" value="${code-root}/src" />
+	<property name="lib" value="${code-root}/lib" />
+	<property name="resources" value="${code-root}/resources"/>
+	<property name="webstart.home" value="${code-root}/client/webstart" />
+	<property name="key.store" value="${webstart.home}/projectKeystore" />
+	<property name="cobertura.dir" value="${code-root}/target/site/cobertura" />
+
+	<property name="emma.dir" value="${lib}" />
+	<property name="dist.tests.dir" value="${dist}/tests" />
+	<property name="tests.data.dir" value="${dist.tests.dir}/data" />
+	<property name="tests.classes.instr.dir" value="${dist.tests.dir}/classes-instr" />
+	<property name="tests.includes" value="**/*Tester.class,**/*Test.class,**/*TestCase.class" />
+
+	<condition property="awt.toolkit.property" value="awt.toolkit">
+		<isset property="awt.toolkit" />
+	</condition>
+
+	<!-- 
+  ########################################################################################
+  Classpaths used throughout the different targets.
+  ########################################################################################-->
+	<path id="emma.lib">
+		<pathelement location="${emma.dir}/emma.jar" />
+		<pathelement location="${emma.dir}/emma_ant.jar" />
+	</path>
+
+	<path id="test.classpath">
+		<pathelement location="${tests.classes.instr.dir}" />
+		<path refid="compile.classpath" />
+		<pathelement location="${testclasses}" />
+		<pathelement location="${classes}" />
+	</path>
+
+	<path id="compile.classpath">
+		<fileset dir="${lib}" includes="**/*.jar" />
+	</path>
+
+	<!-- 
+  ########################################################################################
+  Basic targets for clean-up and compilation.
+  ########################################################################################-->
+	<target name="default" depends="all" />
+	<target name="all" depends="compile" description="Build everything" />
+
+	<target name="compile" depends="init">
+		<mkdir dir="${classes}" />
+		<javac debug="true" deprecation="true" destdir="${classes}" srcdir="${src}" fork="yes">
+			<classpath refid="compile.classpath" />
+		</javac>
+		<copy todir="${classes}">
+			<fileset dir="${src}" excludes="**/*.java" />
+		</copy>
+	</target>
+
+	<target name="init" depends="noop, clean" />
+	<target name="noop" description="Print project name">
+		<echo message="${base.project.name.friendly}" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${classes}" />
+		<delete dir="${testclasses}" />
+		<delete dir="${dist}" />
+		<delete dir="${dist.coverage.dir}" />
+	</target>
+
+	<target name="jar" depends="compile" description="generate the distribution">
+		<mkdir dir="${dist}" />
+		<jar jarfile="${dist}/${base.project.name}.jar" basedir="${classes}">
+			<manifest>
+				<attribute name="Main-Class" value="gameMaker.gameMaker" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="run" depends="jar">
+		<java fork="true" classname="gameMaker.gameMaker">
+			<classpath>
+				<path location="${dist}/${base.project.name}.jar" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="run-tests-simple" depends="compile">
+		<echo level="info">Compiling tests...</echo>
+
+		<mkdir dir="${testclasses}" />
+		<javac sourcepath="" debug="true" deprecation="true" destdir="${testclasses}" srcdir="${test}" fork="yes">
+			<classpath refid="test.classpath" />
+			<include name="**/*.java" />
+			<exclude name="sandbox/**/*.java" />
+		</javac>
+
+		<echo level="info">Running tests...</echo>
+
+		<mkdir dir="${dist.tests.dir}" />
+		<mkdir dir="${tests.data.dir}" />
+
+		<path id="instr.path">
+			<pathelement location="${classes}" />
+			<pathelement location="${testclasses}" />
+		</path>
+
+		<junit printsummary="on" haltonfailure="false" fork="true" clonevm="true">
+			<classpath refid="test.classpath" />
+
+			<formatter type="brief" usefile="false" />
+			<formatter type="xml" />
+
+			<batchtest todir="${tests.data.dir}">
+				<fileset dir="${classes}" includes="${tests.includes}" />
+				<fileset dir="${testclasses}" includes="${tests.includes}" />
+			</batchtest>
+
+			<jvmarg value="-Demma.coverage.out.merge=true" />
+			<jvmarg value="-Demma.report.out.encoding=UTF-8" />
+			<jvmarg value="-Djava.awt.headless=${java.awt.headless}" />
+			<jvmarg value="-D${awt.toolkit.property}=${awt.toolkit}" />
+		</junit>
+	</target>
+
+	<!-- 
+  ########################################################################################
+  Bamboo compile targets. Bamboo automatically executes the deploy-all target on the server.
+  The Bamboo build consists of two basic sequences:
+  
+  1. Building the JUnit tests: 
+  		noop => clean => compile => compile-tests => run-tests
+		
+  2. Building the webstart app: 
+  		noop => clean => compile => build-webstart => deploy-webstart
+  ########################################################################################-->
+	
+	
+	
+	
+	<!-- Commenting out the junit tests and deploy webstart temporarily. Will be added later as required when maven is integrated 
+	<target name='deploy-all' depends='run-tests, deploy-webstart' />-->
+	<target name='deploy-all' depends='copy-cobertura-reports'>
+		<delete includeemptydirs="true">
+			<fileset dir="${webstart.location}" includes="**/*"/>
+		</delete>
+	    <copy todir="${webstart.location}/server/" >  
+    		<fileset dir="${code-root}">  
+                    <include name="**"/>
+                </fileset>	
+	    </copy>
+		<chmod file="${webstart.location}/server/restart-server.sh" perm="755"/>
+	    <exec executable="${webstart.location}/server/restart-server.sh"/>
+	</target>
+	
+	<target name="copy-cobertura-reports" description="Copies the cobertura reports generated by maven to the reports location on tintin">
+	 <delete dir="${dist.coverage.dir}" />
+	 <copy todir="${dist.coverage.dir}" >  
+        <fileset dir="${cobertura.dir}/" includes="**"/>  
+	 </copy>
+	</target>
+	
+	
+
+	<!--
+  ########################################
+  Webstart targets.
+  ########################################-->
+  
+  	<target name="deploy-webstart-maven" description="Deploy the webstart jar generated by maven and jnlp to tintin. Called by tintin during automated build.">
+		<signjar keystore="${key.store}" alias="${key.alias}" storepass="${key.pass}">
+			<fileset dir=".">
+				<include name="client/target/team-all-jar-with-dependencies.jar" />
+			</fileset>
+		</signjar>
+		<copy file="client/target/team-all-jar-with-dependencies.jar" toDir="${webstart.location}" />
+		<copy file="${webstart.home}/project.jnlp" toDir="${webstart.location}" />
+	</target>
+	
+	<target name="deploy-webstart" depends="build-webstart" description="Deploy the webstart jar and jnlp to tintin. Called by tintin during automated build.">
+		<copy file="${base.project.name}.jar" toDir="${webstart.location}" />
+		<copy file="${webstart.home}/project.jnlp" toDir="${webstart.location}" />
+	</target>
+
+	<target name="build-webstart" depends="compile" description="Create a webstartable jar file">
+		<delete file="${base.project.name}.jar" />
+		<unzip src="${lib}/${junit-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${log4j-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${uispec4j-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${xstream-jar}" dest="${project.build.home}" />
+		<unzip src="${resources}/${resource-jar}" dest="${project.build.home}" />
+		<copy file="resources/resource.jar" toDir="${project.build.home}"/>
+		<unzip src="${lib}/${gson-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${comcodec-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${comlog-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${fluent-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${httpclient-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${httpcache-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${httpcore-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${httpmime-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${lang3-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${jtatto-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${syn-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${syn1-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${syn2-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${syn3-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${napkin-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${comcon1.6-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${comcoll3.1-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${comlan2.5-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${timing-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${animation-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${jwizard-jar}" dest="${project.build.home}" />
+		<unzip src="${lib}/${hibernate-commons-annotations-4.0.1.Final}" dest="${project.build.home}" />
+		<unzip src="${lib}/${hibernate-core-4.1.7.Final}" dest="${project.build.home}" />
+		<unzip src="${lib}/${hibernate-jpa-2.0-api-1.0.1.Final}" dest="${project.build.home}" />
+		<unzip src="${lib}/${dom4j-1.6.1}" dest="${project.build.home}" />
+		<unzip src="${lib}/${antlr-2.7.7}" dest="${project.build.home}" />
+		<unzip src="${lib}/${jboss-logging-3.1.0.GA}" dest="${project.build.home}" />
+		<unzip src="${lib}/${jboss-transaction-api_1.1_spec-1.0.0.Final}" dest="${project.build.home}" />
+		<unzip src="${lib}/${jta-1.1}" dest="${project.build.home}" />
+		<unzip src="${lib}/${mig}" dest="${project.build.home}" />
+		<unzip src="${lib}/${slick-util}" dest="${project.build.home}" />
+		<unzip src="${lib}/${slick}" dest="${project.build.home}" />
+		<unzip src="${lib}/${jinput}" dest="${project.build.home}" />
+		<unzip src="${lib}/${lwjgl_util}" dest="${project.build.home}" />
+		<unzip src="${lib}/${lwjgl}" dest="${project.build.home}" />
+
+		<copy todir="${project.build.home}" flatten="false">
+			<fileset dir="${src}">
+				<include name="**/*.gif" />
+				<include name="**/*.jpg" />
+				<include name="**/*.png" />
+				<include name="**/*.wav" />
+				<include name="**/*.au" />
+			</fileset>
+		</copy>
+
+		<jar basedir="${project.build.home}" manifest="${webstart.home}/project.mf" compress="true" jarfile="${base.project.name}.jar" />
+
+		<signjar keystore="${key.store}" alias="${key.alias}" storepass="${key.pass}">
+			<fileset dir=".">
+				<include name="${base.project.name}.jar" />
+			</fileset>
+		</signjar>
+	</target>
+
+	<!--
+  ########################################
+  JUnit and Emma targets.
+  ########################################-->
+	<target name="compile-tests" depends="compile">
+		<mkdir dir="${testclasses}" />
+		<javac sourcepath="" debug="true" deprecation="true" destdir="${testclasses}" srcdir="${test}" fork="yes">
+			<classpath refid="test.classpath" />
+			<include name="**/*.java" />
+			<exclude name="sandbox/**/*.java" />
+		</javac>
+	</target>
+
+	<target name="run-tests" depends="init, compile-tests" description="runs the tests">
+		<echo level="info">Running tests...</echo>
+		<property name="emma.enabled" value="true" />
+		<property name="emma.encoding" value="UTF-8" />
+		<taskdef resource="emma_ant.properties" classpathref="emma.lib" />
+
+		<mkdir dir="${dist.tests.dir}" />
+		<mkdir dir="${tests.data.dir}" />
+
+		<path id="instr.path">
+			<pathelement location="${classes}" />
+			<pathelement location="${testclasses}" />
+		</path>
+
+		<emma>
+			<instr instrpathref="instr.path" destdir="${tests.classes.instr.dir}" metadatafile="${dist.coverage.dir}/metadata.emma" merge="true">
+			</instr>
+		</emma>
+
+		<junit printsummary="on" haltonfailure="false" fork="true" clonevm="true">
+			<classpath refid="test.classpath" />
+
+			<formatter type="brief" usefile="false" />
+			<formatter type="xml" />
+
+			<batchtest todir="${tests.data.dir}">
+				<fileset dir="${classes}" includes="${tests.includes}" />
+				<fileset dir="${testclasses}" includes="${tests.includes}" />
+			</batchtest>
+
+			<jvmarg value="-Demma.coverage.out.file=${dist.coverage.dir}/coverage.emma" />
+			<jvmarg value="-Demma.coverage.out.merge=true" />
+			<jvmarg value="-Demma.report.out.encoding=UTF-8" />
+			<jvmarg value="-Djava.awt.headless=${java.awt.headless}" />
+			<jvmarg value="-D${awt.toolkit.property}=${awt.toolkit}" />
+		</junit>
+
+		<junitreport todir="${dist.tests.dir}">
+			<fileset dir="${tests.data.dir}">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${dist.tests.dir}" />
+		</junitreport>
+
+		<emma>
+			<report sourcepath="${src},${test}">
+				<fileset dir="${dist.coverage.dir}">
+					<include name="*.emma" />
+				</fileset>
+				<txt outfile="${dist.coverage.dir}/index.txt" />
+				<html outfile="${dist.coverage.dir}/index.html" />
+			</report>
+		</emma>
+
+	</target>
+</project>

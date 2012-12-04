@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="db.Resources" table="Resources" catalog="a9team3">
+        <id name="resourceNumber" type="java.lang.Integer">
+            <column name="reource_number" />
+            <generator class="identity" />
+        </id>
+        <property name="resourceName" type="string">
+            <column name="resource_name" length="100" not-null="true" />
+        </property>
+        <property name="resourceType" type="string">
+            <column name="resource_type" length="45" not-null="true" />
+        </property>
+        <property name="resource" type="binary">
+            <column name="resource" not-null="true" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" length="50" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
